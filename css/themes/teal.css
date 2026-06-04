@@ -1,11 +1,11 @@
 /* ============================
-   THEME: DARK TEAL / CYAN
+   THEME: DARK ORANGE / AMBER
    ============================ */
 
 :root {
-  --primary-rgb: 19, 78, 74;
+  --primary-rgb: 154, 52, 18;            /* orange-900 */
   --primary:     rgb(var(--primary-rgb));
-  --primary-dk:  #042f2e;
+  --primary-dk:  #7c2d12;                /* orange-950 */
   --primary-50:  rgba(var(--primary-rgb), 0.50);
   --primary-30:  rgba(var(--primary-rgb), 0.30);
   --primary-15:  rgba(var(--primary-rgb), 0.15);
@@ -15,19 +15,19 @@
   --accent-bg:   #fef3c7;
   --accent-fg:   #ffffff;
 
-  --gradient-a:  #020f0f;
-  --gradient-b:  #134e4a;
-  --gradient-c:  #0d9488;
+  --gradient-a:  #2d0f04;
+  --gradient-b:  #9a3412;
+  --gradient-c:  #ea580c;
 
-  --swatch-1:    #134e4a;
-  --swatch-2:    #2dd4bf;
+  --swatch-1:    #9a3412;
+  --swatch-2:    #fb923c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --primary-rgb: 45, 212, 191;
+    --primary-rgb: 251, 146, 60;         /* orange-400 */
     --primary:     rgb(var(--primary-rgb));
-    --primary-dk:  #5eead4;
+    --primary-dk:  #fdba74;              /* orange-300 */
     --primary-50:  rgba(var(--primary-rgb), 0.50);
     --primary-30:  rgba(var(--primary-rgb), 0.30);
     --primary-15:  rgba(var(--primary-rgb), 0.20);
@@ -37,16 +37,16 @@
     --accent-bg:   rgba(253, 224, 71, 0.12);
     --accent-fg:   #0d0d14;
 
-    --gradient-a:  #010808;
-    --gradient-b:  #042f2e;
-    --gradient-c:  #115e59;
+    --gradient-a:  #150602;
+    --gradient-b:  #431407;
+    --gradient-c:  #9a3412;
   }
 }
 
 [data-theme="dark"] {
-  --primary-rgb: 45, 212, 191;
+  --primary-rgb: 251, 146, 60;
   --primary:     rgb(var(--primary-rgb));
-  --primary-dk:  #5eead4;
+  --primary-dk:  #fdba74;
   --primary-50:  rgba(var(--primary-rgb), 0.50);
   --primary-30:  rgba(var(--primary-rgb), 0.30);
   --primary-15:  rgba(var(--primary-rgb), 0.20);
@@ -56,7 +56,7 @@
   --accent-bg:   rgba(253, 224, 71, 0.12);
   --accent-fg:   #0d0d14;
 
-  --gradient-a:  #010808;
-  --gradient-b:  #042f2e;
-  --gradient-c:  #115e59;
+  --gradient-a:  #150602;
+  --gradient-b:  #431407;
+  --gradient-c:  #9a3412;
 }
