@@ -141,25 +141,30 @@ body {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  height: var(--nav-h);
+}
+
+.nav-inner {
+  max-width: 900px;          /* main 과 동일 */
+  margin: 0 auto;
+  padding: 0 20px;           /* main 좌우 패딩과 동일 */
   display: flex;
   align-items: center;
-  height: var(--nav-h);
-  /* 모바일 가로 스크롤 */
-  overflow-x: auto;
+  height: 100%;
+  overflow-x: auto;          /* 모바일 가로 스크롤 */
   scrollbar-width: none;
 }
-#navbar::-webkit-scrollbar { display: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
 
 #navbar ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;       /* 한 줄 고정 */
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   list-style: none;
   gap: 4px;
-  padding: 0 12px;
   align-items: center;
   flex: 1;
-  min-width: max-content;  /* 아이템이 잘리지 않게 */
+  min-width: max-content;
 }
 
 #navbar a {
@@ -180,12 +185,10 @@ body {
   font-weight: 700;
 }
 
-/* dark-mode toggle — 오른쪽 고정 (스크롤 밖) */
+/* dark-mode toggle */
 #dark-toggle {
-  position: sticky;
-  right: 0;
   flex-shrink: 0;
-  margin-right: 12px;
+  margin-left: 8px;
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -198,7 +201,6 @@ body {
   align-items: center;
   justify-content: center;
   transition: background .2s, color .2s, transform .2s;
-  box-shadow: -4px 0 8px var(--bg);
 }
 #dark-toggle:hover {
   background: var(--accent-bg);
