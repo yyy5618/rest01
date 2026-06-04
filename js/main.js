@@ -169,6 +169,16 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(s => observer.observe(s));
 
+// =====================================================
+// SCROLL TOP / BOTTOM
+// =====================================================
+document.getElementById('scroll-top').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('scroll-bottom').addEventListener('click', () => {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+});
+
 // ── Hide broken profile image ──
 const profileImg = document.getElementById('profile-photo');
 if (profileImg) profileImg.addEventListener('error', () => { profileImg.style.display = 'none'; });
