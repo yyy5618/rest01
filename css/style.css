@@ -14,7 +14,7 @@
   --border:  #e2e8f0;
   --shadow:  0 2px 12px rgba(0,0,0,.08);
   --radius:  12px;
-  --nav-h:   68px;
+  --nav-h:   60px;
 }
 
 /* ── Surface / text tokens (dark mode — system) ── */
@@ -169,11 +169,11 @@ body {
 
 #navbar a {
   display: block;
-  padding: 8px 18px;
+  padding: 6px 14px;
   color: var(--muted);
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 1.05rem;
+  border-radius: 6px;
+  font-size: .9rem;
   font-weight: 500;
   white-space: nowrap;
   transition: background .2s, color .2s;
