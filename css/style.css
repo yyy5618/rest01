@@ -252,29 +252,31 @@ section p { color: var(--muted); font-size: 1rem; }
 .project-link:hover { text-decoration: underline; }
 
 /* ===== CONTACT ===== */
-.contact-grid {
+.contact-buttons {
   display: flex;
-  flex-wrap: wrap;
   gap: 16px;
 }
 
-.contact-card {
+.contact-btn {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 24px;
-  text-decoration: none;
-  color: var(--text);
-  font-size: .95rem;
-  font-weight: 500;
   box-shadow: var(--shadow);
-  transition: background .2s, color .2s;
+  color: var(--primary);
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: background .2s, color .2s, transform .2s;
 }
-.contact-card i { font-size: 1.3rem; color: var(--primary); }
-.contact-card:hover { background: #eff6ff; color: var(--primary); }
+.contact-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
 
 /* ===== FOOTER ===== */
 footer {
