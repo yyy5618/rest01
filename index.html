@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>유용주 - 이력서</title>
+  <!-- 테마 (팔레트 전환 시 JS가 href 교체) -->
+  <link id="theme-link" rel="stylesheet" href="css/themes/purple.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -34,6 +36,10 @@
       <li><a href="#projects">프로젝트</a></li>
       <li><a href="#contact">연락처</a></li>
     </ul>
+    <!-- 다크모드 토글 -->
+    <button id="dark-toggle" title="다크/라이트 모드 전환" aria-label="다크모드 전환">
+      <i class="fa-solid fa-moon"></i>
+    </button>
   </nav>
 
   <main>
@@ -42,7 +48,6 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        <!-- TODO: 자기소개 작성 후 교체 -->
         안녕하세요! 데이터 분석과 개발에 관심이 많은 유용주입니다.
         항상 새로운 기술을 배우고 성장하는 것을 즐깁니다.
       </p>
@@ -52,27 +57,11 @@
     <section id="skills">
       <h2>기술 스택</h2>
       <div class="skills-grid">
-        <div class="skill-card">
-          <i class="fa-brands fa-python"></i>
-          <span>Python</span>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-js"></i>
-          <span>JavaScript</span>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-html5"></i>
-          <span>HTML5</span>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-css3-alt"></i>
-          <span>CSS3</span>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-git-alt"></i>
-          <span>Git</span>
-        </div>
-        <!-- TODO: 기술 추가 시 위 카드 형식으로 추가 -->
+        <div class="skill-card"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill-card"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+        <div class="skill-card"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+        <div class="skill-card"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+        <div class="skill-card"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
       </div>
     </section>
 
@@ -80,14 +69,11 @@
     <section id="experience">
       <h2>경력</h2>
       <div class="timeline">
-        <!-- TODO: 경력 사항 입력 -->
         <div class="timeline-item placeholder">
           <span class="period">YYYY.MM ~ YYYY.MM</span>
           <h3>회사명</h3>
           <p class="role">직책 / 부서</p>
-          <ul>
-            <li>주요 업무 및 성과를 작성해주세요.</li>
-          </ul>
+          <ul><li>주요 업무 및 성과를 작성해주세요.</li></ul>
         </div>
       </div>
     </section>
@@ -96,7 +82,6 @@
     <section id="education">
       <h2>학력</h2>
       <div class="timeline">
-        <!-- TODO: 학력 사항 입력 -->
         <div class="timeline-item placeholder">
           <span class="period">YYYY.MM ~ YYYY.MM</span>
           <h3>학교명</h3>
@@ -111,24 +96,15 @@
       <div class="cert-grid">
         <div class="cert-card">
           <i class="fa-solid fa-certificate"></i>
-          <div>
-            <h3>빅데이터분석기사</h3>
-            <p>한국데이터산업진흥원 · 2023.12.22</p>
-          </div>
+          <div><h3>빅데이터분석기사</h3><p>한국데이터산업진흥원 · 2023.12.22</p></div>
         </div>
         <div class="cert-card">
           <i class="fa-solid fa-certificate"></i>
-          <div>
-            <h3>AICE Associate</h3>
-            <p>KT / 한국경제신문 · 2023.04.23</p>
-          </div>
+          <div><h3>AICE Associate</h3><p>KT / 한국경제신문 · 2023.04.23</p></div>
         </div>
         <div class="cert-card">
           <i class="fa-solid fa-certificate"></i>
-          <div>
-            <h3>사회조사분석사 2급</h3>
-            <p>한국통계진흥원 · 2020.09.11</p>
-          </div>
+          <div><h3>사회조사분석사 2급</h3><p>한국통계진흥원 · 2020.09.11</p></div>
         </div>
       </div>
     </section>
@@ -137,7 +113,6 @@
     <section id="projects">
       <h2>프로젝트</h2>
       <div class="projects-grid">
-        <!-- TODO: 프로젝트 카드 추가 -->
         <div class="project-card placeholder">
           <h3>프로젝트명</h3>
           <p class="project-desc">프로젝트 설명을 입력해주세요.</p>
@@ -168,6 +143,33 @@
   <footer>
     <p>© 2026 유용주. Built with HTML / CSS / JS.</p>
   </footer>
+
+  <!-- ===== PALETTE SWITCHER ===== -->
+  <div class="palette-switcher" id="palette-switcher">
+    <div class="palette-panel" id="palette-panel">
+      <span class="palette-label">테마</span>
+      <div class="swatch-list">
+        <button class="swatch-pair active" data-palette="purple" title="다크 퍼플">
+          <span style="background:#4c1d95"></span><span style="background:#a855f7"></span>
+        </button>
+        <button class="swatch-pair" data-palette="blue" title="다크 네이비 / 로열 블루">
+          <span style="background:#1e3a8a"></span><span style="background:#60a5fa"></span>
+        </button>
+        <button class="swatch-pair" data-palette="green" title="다크 그린 / 연두">
+          <span style="background:#064e3b"></span><span style="background:#6ee7b7"></span>
+        </button>
+        <button class="swatch-pair" data-palette="rose" title="다크 크림슨 / 코랄">
+          <span style="background:#881337"></span><span style="background:#fb7185"></span>
+        </button>
+        <button class="swatch-pair" data-palette="teal" title="다크 틸 / 시안">
+          <span style="background:#134e4a"></span><span style="background:#2dd4bf"></span>
+        </button>
+      </div>
+    </div>
+    <button class="palette-fab" id="palette-fab" title="팔레트 열기" aria-label="컬러 팔레트">
+      <i class="fa-solid fa-palette"></i>
+    </button>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

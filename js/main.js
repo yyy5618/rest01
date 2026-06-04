@@ -1,4 +1,6 @@
-// ===== PARTICLE NETWORK =====
+// =====================================================
+// PARTICLE NETWORK
+// =====================================================
 (function () {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
@@ -56,7 +58,9 @@
   draw();
 })();
 
-// ===== TYPING EFFECT =====
+// =====================================================
+// TYPING EFFECT
+// =====================================================
 (function () {
   const el = document.getElementById('typing-text');
   if (!el) return;
@@ -67,26 +71,91 @@
     const current = texts[ti];
     el.textContent = deleting ? current.slice(0, ci--) : current.slice(0, ci++);
     if (!deleting && ci > current.length) {
-      deleting = true;
-      setTimeout(type, 1500);
-      return;
+      deleting = true; setTimeout(type, 1500); return;
     }
     if (deleting && ci < 0) {
-      deleting = false;
-      ti = (ti + 1) % texts.length;
-      ci = 0;
-      setTimeout(type, 400);
-      return;
+      deleting = false; ti = (ti + 1) % texts.length; ci = 0;
+      setTimeout(type, 400); return;
     }
     setTimeout(type, deleting ? 60 : 100);
   }
-
   setTimeout(type, 600);
 })();
 
-// ===== ACTIVE NAV LINK HIGHLIGHT ON SCROLL =====
+// =====================================================
+// THEME & DARK MODE
+// =====================================================
+(function () {
+  const PALETTES = ['purple', 'blue', 'green', 'rose', 'teal'];
+  const themeLink   = document.getElementById('theme-link');
+  const darkToggle  = document.getElementById('dark-toggle');
+  const paletteFab  = document.getElementById('palette-fab');
+  const palettePanel = document.getElementById('palette-panel');
+
+  // ── Restore saved preferences ──
+  let savedPalette = localStorage.getItem('palette') || 'purple';
+  let savedDark    = localStorage.getItem('darkMode');
+
+  // Determine initial dark state
+  let isDark = savedDark !== null
+    ? savedDark === 'true'
+    : window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  function applyPalette(name) {
+    if (!PALETTES.includes(name)) name = 'purple';
+    themeLink.href = `css/themes/${name}.css`;
+    document.querySelectorAll('.swatch-pair').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.palette === name);
+    });
+    localStorage.setItem('palette', name);
+  }
+
+  function applyDark(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    darkToggle.innerHTML = dark
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+    darkToggle.title = dark ? '라이트 모드 전환' : '다크 모드 전환';
+    localStorage.setItem('darkMode', dark);
+    isDark = dark;
+  }
+
+  // Apply on load
+  applyPalette(savedPalette);
+  applyDark(isDark);
+
+  // ── Dark toggle ──
+  darkToggle.addEventListener('click', () => applyDark(!isDark));
+
+  // ── Palette FAB open/close ──
+  paletteFab.addEventListener('click', e => {
+    e.stopPropagation();
+    palettePanel.classList.toggle('open');
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#palette-switcher')) {
+      palettePanel.classList.remove('open');
+    }
+  });
+
+  // ── Swatch clicks ──
+  document.querySelectorAll('.swatch-pair').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyPalette(btn.dataset.palette);
+    });
+  });
+
+  // ── Follow system preference change (when no manual override) ──
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (localStorage.getItem('darkMode') === null) applyDark(e.matches);
+  });
+})();
+
+// =====================================================
+// ACTIVE NAV LINK ON SCROLL
+// =====================================================
 const sections = document.querySelectorAll('main section[id]');
-const navLinks = document.querySelectorAll('#navbar a');
+const navLinks  = document.querySelectorAll('#navbar a');
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -100,10 +169,6 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(s => observer.observe(s));
 
-// Hide broken profile image gracefully
+// ── Hide broken profile image ──
 const profileImg = document.getElementById('profile-photo');
-if (profileImg) {
-  profileImg.addEventListener('error', () => {
-    profileImg.style.display = 'none';
-  });
-}
+if (profileImg) profileImg.addEventListener('error', () => { profileImg.style.display = 'none'; });

@@ -1,0 +1,68 @@
+/* ============================
+   THEME: DARK PURPLE (default)
+   주컬러    : Dark Purple
+   보조컬러  : Dark Purple 50%
+   이벤트컬러: Yellow/Amber
+   ============================ */
+
+/* ── Light mode ── */
+:root {
+  --primary-rgb: 76, 29, 149;            /* violet-900 */
+  --primary:     rgb(var(--primary-rgb));
+  --primary-dk:  #3b0764;                /* violet-950 */
+  --primary-50:  rgba(var(--primary-rgb), 0.50);
+  --primary-30:  rgba(var(--primary-rgb), 0.30);
+  --primary-15:  rgba(var(--primary-rgb), 0.15);
+  --primary-08:  rgba(var(--primary-rgb), 0.08);
+
+  --accent:      #b45309;                /* amber-700  — 4.6:1 on white ✓ */
+  --accent-bg:   #fef3c7;               /* amber-100  */
+  --accent-fg:   #ffffff;
+
+  --gradient-a:  #1e0442;
+  --gradient-b:  #4c1d95;
+  --gradient-c:  #7c3aed;
+
+  --swatch-1:    #4c1d95;
+  --swatch-2:    #a855f7;
+}
+
+/* ── Dark mode (system preference) ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --primary-rgb: 192, 132, 252;        /* purple-400 — readable on dark bg */
+    --primary:     rgb(var(--primary-rgb));
+    --primary-dk:  #d8b4fe;              /* purple-300 */
+    --primary-50:  rgba(var(--primary-rgb), 0.50);
+    --primary-30:  rgba(var(--primary-rgb), 0.30);
+    --primary-15:  rgba(var(--primary-rgb), 0.20);
+    --primary-08:  rgba(var(--primary-rgb), 0.12);
+
+    --accent:      #fde047;              /* yellow-300 — high contrast on dark ✓ */
+    --accent-bg:   rgba(253, 224, 71, 0.12);
+    --accent-fg:   #0d0d14;
+
+    --gradient-a:  #0d0520;
+    --gradient-b:  #2e1065;
+    --gradient-c:  #5b21b6;
+  }
+}
+
+/* ── Dark mode (manual toggle) ── */
+[data-theme="dark"] {
+  --primary-rgb: 192, 132, 252;
+  --primary:     rgb(var(--primary-rgb));
+  --primary-dk:  #d8b4fe;
+  --primary-50:  rgba(var(--primary-rgb), 0.50);
+  --primary-30:  rgba(var(--primary-rgb), 0.30);
+  --primary-15:  rgba(var(--primary-rgb), 0.20);
+  --primary-08:  rgba(var(--primary-rgb), 0.12);
+
+  --accent:      #fde047;
+  --accent-bg:   rgba(253, 224, 71, 0.12);
+  --accent-fg:   #0d0d14;
+
+  --gradient-a:  #0d0520;
+  --gradient-b:  #2e1065;
+  --gradient-c:  #5b21b6;
+}
