@@ -115,7 +115,10 @@ fdraw.ellipse([4, 4, 60, 60], fill=hex2rgb(ACCENT))
 
 # 'Y' 글자
 font_fav = find_font(["malgunbd.ttf", "malgun.ttf"], 36)
-fdraw.text((14, 12), "Y", font=font_fav, fill=hex2rgb(BG))
+bbox = fdraw.textbbox((0, 0), "Y", font=font_fav)
+tx = (64 - (bbox[2] - bbox[0])) / 2 - bbox[0]
+ty = (64 - (bbox[3] - bbox[1])) / 2 - bbox[1]
+fdraw.text((tx, ty), "Y", font=font_fav, fill=hex2rgb(BG))
 
 fav_path = os.path.join(OUT_DIR, "favicon.png")
 fav.save(fav_path, "PNG")
