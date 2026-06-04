@@ -158,10 +158,9 @@ body {
 
 #navbar ul {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
   list-style: none;
-  gap: 2px;
   align-items: center;
   flex: 1;
   min-width: max-content;
@@ -169,11 +168,11 @@ body {
 
 #navbar a {
   display: block;
-  padding: 6px 14px;
+  padding: 6px 12px;
   color: var(--muted);
   text-decoration: none;
   border-radius: 6px;
-  font-size: .9rem;
+  font-size: 1.2rem;
   font-weight: 500;
   white-space: nowrap;
   transition: background .2s, color .2s;
