@@ -81,7 +81,7 @@ for tag in tags:
     x += tw + pad * 2 + 10
 
 # ── URL ──
-draw.text((120, H - 80), "https://yyy5618.github.io/rest01/",
+draw.text((120, H - 80), "https://yong275.github.io/rest01/",
           font=font_url, fill=(255, 255, 255, 140))
 
 # ── 우측 자격증 뱃지 ──
